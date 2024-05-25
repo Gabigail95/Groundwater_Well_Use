@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Well Use and Average GWE Charts</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        #year1, #year2, #generateButton {
+            margin: 10px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Well Use Count</h2>
+        <canvas id="wellUseChart"></canvas>
+    </div>
+
+    <div class="container">
+        <h2>Average GWE by Well Use</h2>
+        <div>
+            <label for="year1">Select Year 1:</label>
+            <select id="year1">
+                {% for year in years %}
+                <option value="{{ year }}">{{ year }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="year2">Select Year 2:</label>
+            <select id="year2">
+                {% for year in years %}
+                <option value="{{ year }}">{{ year }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <button id="generateButton">Generate Data</button>
+        </div>
+        <canvas id="averageGWEChart"></canvas>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
